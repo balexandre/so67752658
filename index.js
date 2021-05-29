@@ -76,4 +76,8 @@ const joinData = async () => {
     return joinedData;
 };
 
-joinData().then(d => console.log(d));
+(async () => {
+    const allData = await joinData();
+    log('allData has', allData.size, 'entries');
+    log('first entry is', allData.entries().next().value);
+})();
